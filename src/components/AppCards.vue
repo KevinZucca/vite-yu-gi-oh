@@ -2,6 +2,7 @@
     import {store} from "../store.js";
     import axios from "axios";
     import CardsItem from "./CardsItem.vue";
+    import AppLoader from "./AppLoader.vue";
 
     export default {
         name: "AppCards",
@@ -9,11 +10,13 @@
         data() {
             return {
                 store,
+                viewCard: false,
             }
         },
 
         components: {
             CardsItem,
+            AppLoader,
         },
 
         created() {
@@ -21,13 +24,21 @@
                 this.store.cards = res.data.data;
                 console.log(res.data.data);
             })
+        },
+
+        mounted() {
+            setTimeout(() => {
+                this.viewCard = true;
+            }, 3000);
+            this.viewCard = false
         }
     }
 </script>
 
 <template>
   <div class="card-container">
-    <CardsItem v-for="card in store.cards"
+    <AppLoader v-if="!this.viewCard"></AppLoader>
+    <CardsItem v-if="this.viewCard" v-for="card in store.cards"
                :title="card.name" :image="card.card_images[0].image_url_cropped"
                :description="card.desc"
                :type="card.frameType"

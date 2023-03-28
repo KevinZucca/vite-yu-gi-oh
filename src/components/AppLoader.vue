@@ -1,27 +1,24 @@
 <script>
 
-import AppCards from "./components/AppCards.vue";
-
-
 export default {
+    name: "AppLoader",
   data() {
     return {
       
   }
 },
-
- components: {
-  AppCards,
-
 }
- }
+
 
 </script>
 
 <template>
-  <AppCards></AppCards>
+    <h1>Loading...</h1>
 </template>
 
 <style lang="scss">
-
+    h1 {
+        margin: 300px auto;
+        font-size: 30px;
+    }
 </style>
