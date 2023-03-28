@@ -49,6 +49,10 @@
 
 <style lang="scss" scoped>
 
+@use "../variables.scss" as *;
+
+
+
 .card {
         display: flex;
         flex-flow: column;
@@ -56,8 +60,10 @@
         width: 300px;
         height: 500px;
         padding: 10px;
-        border: 10px solid black;
+        border: 10px solid $card-border-bg;
         margin-bottom: 30px;
+        background-color: $card-bg;
+        
 
         &-header {
           display: flex;
@@ -98,7 +104,7 @@
             justify-content: center;
 
             max-width: 100%;
-            height: 250px;
+            height: 260px;
             overflow: hidden;
 
           img {
@@ -116,14 +122,19 @@
           display: flex;
           flex-flow: row wrap;
 
-          min-height: 130px;
-          border: 3px solid #ce994f82;
-          font-size: .7em;
-          margin-top: 10px;
+          height: 150px;
+          border: 4px solid #ce994f82;
+          margin-top: 5px;
+          background-color: #f2e0d6;
+          overflow: hidden;
+
 
           .description {
-            padding: 5px;
+            font-size: .65em;
+            padding: 2px;
+            padding-top: 0;
           }
+
         }
     }
 </style>

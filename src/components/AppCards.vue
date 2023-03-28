@@ -45,11 +45,18 @@
 
 <style lang="scss" scoped>
     .card-container {
+        background-size: contain;
+
         display: flex;
         flex-flow: row wrap;
         gap: 20px;
         justify-content: center;
 
         padding: 50px;
+
+
+        &:first-child {
+            background-image: url("public/images/bigwallpaper.jpg");
+        }
     }
 </style>
