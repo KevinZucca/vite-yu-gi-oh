@@ -63,6 +63,8 @@
         border: 10px solid $card-border-bg;
         margin-bottom: 30px;
         background-color: $card-bg;
+        box-shadow: 5px 5px 10px rgba($color: #000000, $alpha: 1.0);
+        
         
 
         &-header {
@@ -74,7 +76,7 @@
           border-style: outset;
           padding: 3px;
           text-transform: uppercase;
-
+          
           .title {
             text-align: center;
             font-size: 14px;
