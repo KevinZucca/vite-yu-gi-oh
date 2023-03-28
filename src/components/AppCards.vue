@@ -27,7 +27,13 @@
 
 <template>
   <div class="card-container">
-    <CardsItem v-for="card in store.cards" :title="card.name" :image="card.card_images.image_url" :description="card.desc"></CardsItem>
+    <CardsItem v-for="card in store.cards"
+               :title="card.name" :image="card.card_images[0].image_url_cropped"
+               :description="card.desc"
+               :type="card.frameType"
+               :subtitle="card.type"
+               >
+    </CardsItem>
   </div>
 </template>
 
@@ -35,7 +41,7 @@
     .card-container {
         display: flex;
         flex-flow: row wrap;
-        gap: 10px;
+        gap: 20px;
         justify-content: center;
 
         padding: 50px;
