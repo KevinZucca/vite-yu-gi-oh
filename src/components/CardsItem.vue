@@ -28,12 +28,19 @@
       <p>{{ type }}</p>
     </div>
 
-    <div class="subtitle">
-      <p>[ {{ subtitle }} ]</p>
-    </div>
+    <div class="card-main">
+      <div class="subtitle">
+        <p>[ {{ subtitle }} ]</p>
+      </div>
 
-    <img :src="image" alt="card-img">
-    <p class="description">{{ description }}</p>
+      <div class="image-container">
+       <img :src="image" alt="card-img">
+      </div>
+    </div>
+  
+    <div class="description-container">
+      <p class="description">{{ description }}</p>
+    </div>
   </div>
 </template>
 
@@ -49,7 +56,7 @@
         width: 300px;
         height: 500px;
         padding: 10px;
-        border: 1px solid black;
+        border: 10px solid black;
         margin-bottom: 30px;
 
         &-header {
@@ -60,29 +67,63 @@
           height: 25px;
           border-style: outset;
           padding: 3px;
-          margin-bottom: 10px;
+          text-transform: uppercase;
 
           .title {
             text-align: center;
             font-size: 14px;
           }
+
         }
 
-        .subtitle {
+
+
+        .card-main {
           display: flex;
-          justify-content: flex-end;
+          flex-flow: column;
 
-          text-transform: uppercase;
-          font-weight: bold;
-        } 
+          margin: 0 8px;
+          
+          .subtitle {
+            display: flex;
+            justify-content: flex-end;
 
-        img {
-          pointer-events: none;
-          border-style: outset;
+            text-transform: uppercase;
+            font-weight: bold;
+            line-height: 0.1;
+          } 
+
+          .image-container {
+            display: flex;
+            justify-content: center;
+
+            max-width: 100%;
+            height: 250px;
+            overflow: hidden;
+
+          img {
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            border-style: outset;
+          }
+        }
         }
 
-        .description {
-          font-size: .8em;
+       
+
+        .description-container {
+          display: flex;
+          flex-flow: row wrap;
+
+          min-height: 130px;
+          border: 3px solid #ce994f82;
+          font-size: .7em;
+          margin-top: 10px;
+
+          .description {
+            padding: 5px;
+          }
         }
     }
 </style>
