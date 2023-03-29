@@ -4,6 +4,8 @@
     import CardsItem from "./CardsItem.vue";
     import AppLoader from "./AppLoader.vue";
     import AppSearch from "./AppSearch.vue";
+    import variables from "../variables";
+
 
     export default {
         name: "AppCards",
@@ -11,7 +13,9 @@
         data() {
             return {
                 store,
+                variables,
                 viewCard: false,
+                viewSearch: false,
             }
         },
 
@@ -27,6 +31,7 @@
                 this.store.cards = res.data.data;
                 console.log(res.data.data);
                 this.viewCard = true;
+                this.viewSearch = true;
             })
         },
 
@@ -37,8 +42,11 @@
 
                 axios.get(APIquestion).then((res)=>{
                     this.store.cards = res.data.data;
-                })
-            }
+                    this.store.ResultCounter = this.store.cards.length
+                    this.variables.showResults = true;
+                });
+            },
+
         }
     }
 </script>
@@ -46,7 +54,7 @@
 <template>
 
         <div class="card-container">
-            <AppSearch @clickButton="searchCard()"></AppSearch>
+            <AppSearch v-show="viewSearch" @clickButton="searchCard()"></AppSearch>
 
             <CardsItem v-if="this.viewCard" v-for="card in store.cards"
                     :title="card.name" :image="card.card_images[0].image_url_cropped"
@@ -63,7 +71,7 @@
 <style lang="scss" scoped>
     .card-container {
         background-image: url("public/images/bigwallpaper.jpg");
-        background-size: contain;
+        background-size: 100%;
 
         display: flex;
         flex-flow: row wrap;
