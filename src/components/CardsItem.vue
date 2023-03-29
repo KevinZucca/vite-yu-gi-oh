@@ -16,7 +16,9 @@
           subtitle: String,
           image: String,
           description: String,      
-        }
+        },
+
+        
     }
 </script>
 
@@ -50,8 +52,6 @@
 <style lang="scss" scoped>
 
 @use "../variables.scss" as *;
-
-
 
 .card {
         display: flex;
