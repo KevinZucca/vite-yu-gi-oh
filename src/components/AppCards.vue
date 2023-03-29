@@ -36,7 +36,7 @@
                 console.log(APIquestion)
 
                 axios.get(APIquestion).then((res)=>{
-                    this.store.cards = res.data.name;
+                    this.store.cards = res.data.data;
                 })
             }
         }

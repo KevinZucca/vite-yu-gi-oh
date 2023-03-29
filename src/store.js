@@ -6,7 +6,7 @@ export const store = reactive ({
     inputValue: "",
 
     APIcall: "https://db.ygoprodeck.com/api/v7/cardinfo.php",
-    APIquery: "?name=",
+    APIquery: "?num=50&offset=0&fname=",
 
     APIresult: "",
 });
