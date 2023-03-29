@@ -37,17 +37,26 @@
 
         methods: {
             searchCard() {
+                
                 let APIquestion = this.store.APIcall + this.store.APIquery + this.store.inputValue;
                 console.log(APIquestion)
 
                 axios.get(APIquestion).then((res)=>{
+    
                     this.store.cards = res.data.data;
                     this.store.ResultCounter = this.store.cards.length
-                    this.variables.showResults = true;
-                });
+                    this.variables.showResults = true;    
+                    this.store.inputValue = "";
+                    
+                    }).catch((error) =>{
+                        alert("Nessun Risultato")
+                        this.store.inputValue = "";
+                    })
+                }
+                
             },
 
-        }
+        
     }
 </script>
 
